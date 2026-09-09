@@ -39,10 +39,11 @@ Windows-only workflow.
 
    Omit all `--source` flags when the user only requested installation. The
    normal path proves inherited Codex/Terminal access, configures Zortex's
-   read-only MCP bridge, and starts selected connector workers in the
-   background; it does not use a model.
-6. Report the receipt ID and state. Do not claim data is ready until a
-   queryable source reports `STARTER_READY`.
+   read-only MCP bridge, and automatically starts the bounded first read for
+   each selected connector in the background; it does not use a model.
+6. Report the receipt ID and state. Do not ask the user to request a Starter
+   or choose a sync strategy. Do not claim data is ready until a queryable
+   source reports `STARTER_READY`.
 
 ## Provider and readiness boundaries
 
@@ -51,10 +52,10 @@ Windows-only workflow.
   return its exact next step.
 - Never put a credential in a command argument, chat message, log, or skill.
   Do not retrieve OTPs or browser verification codes.
-- A Starter result is bounded, not a full-history sync: Gmail reads at most
-  three recent messages, Drive reads at most three file metadata records,
-  Notion reads at most three page metadata records, PostHog reads at most three
-  Insights, and Outlook reads at most three messages. WhatsApp is metadata-only
+- A completed first read is bounded, not a full-history sync: Gmail reads up to
+  10 messages under its 1 MiB body cap, Drive reads up to 10 file metadata
+  records, Notion reads up to 10 page metadata records, PostHog reads up to 10
+  Insights, and Outlook reads up to 10 messages. WhatsApp is metadata-only
   and does not enable chat-content Q&A.
 
 ## Status, questions, and undo
@@ -68,6 +69,10 @@ zortex autopilot connect-status <receipt-id> --json
 After a queryable source is `STARTER_READY`, use the read-only `indra.context`
 bridge for relevant questions and cite returned Zortex references. Do not use
 MCP to start, change, or authorize connectors.
+
+When status returns `itemsRead`, tell the user the exact count for each source:
+`I read N <source> items. I have not read more history. Would you like me to
+read more?` Do not begin a backfill until the user makes that later request.
 
 To disable exactly one connection, run:
 

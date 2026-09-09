@@ -1,6 +1,6 @@
 {
   "name": "zortex-bootstrap",
-  "version": "0.1.0",
+  "version": "0.1.1+codex.20260909031006",
   "description": "Install Zortex for Windows and start bounded source onboarding from Codex.",
   "author": {
     "name": "ZortexHQ",
@@ -9,7 +9,13 @@
   "homepage": "https://github.com/ZortexHQ/zortex-codex-plugin#readme",
   "repository": "https://github.com/ZortexHQ/zortex-codex-plugin",
   "license": "MIT",
-  "keywords": ["zortex", "codex", "windows", "onboarding", "context"],
+  "keywords": [
+    "zortex",
+    "codex",
+    "windows",
+    "onboarding",
+    "context"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Zortex",
@@ -17,7 +23,9 @@
     "longDescription": "On an explicit request, installs the public Zortex Windows package and starts receipt-backed, bounded source onboarding.",
     "developerName": "ZortexHQ",
     "category": "Productivity",
-    "capabilities": ["Shell"],
+    "capabilities": [
+      "Shell"
+    ],
     "websiteURL": "https://github.com/ZortexHQ/zortex-codex-plugin",
     "defaultPrompt": [
       "Install Zortex and connect my Gmail and Google Drive.",

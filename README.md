@@ -15,17 +15,19 @@ codex plugin add zortex-bootstrap@zortexhq
 
 Start a new Codex conversation, then say:
 
-> Install Zortex and connect my Gmail and Google Drive. Use the Starter path,
-> not a full-history sync.
+> Install Zortex and connect my Gmail and Google Drive.
 
 The plugin runs `npm install --global @zortex-hq/install` only for an explicit
 Zortex installation or connection request, then runs the receipt-backed agent
 onboarding command. If Zortex is already installed, it skips npm installation.
+Every named supported source automatically gets a bounded first read; when it
+finishes, Codex reports the exact item count and lets the user decide whether
+to read more history.
 
 ## What it can connect
 
-`gmail`, `google-drive`, `notion`, `posthog`, and `outlook` support bounded,
-queryable Starter reads. `whatsapp` is metadata-only. Chrome history and
+`gmail`, `google-drive`, `notion`, `posthog`, and `outlook` automatically read
+up to 10 bounded records at first connection. `whatsapp` is metadata-only. Chrome history and
 computer files need a bounded selection; GitHub is currently blocked and
 WeChat is excluded from this Windows path.
 
