@@ -4,6 +4,9 @@ This public Codex plugin teaches a fresh Codex installation the exact Zortex
 package name and the safe Windows onboarding route. It contains instructions
 only: no connector, MCP server, user data, token, or provider credential.
 
+For supported source connection requests, it routes Codex to Zortex rather than
+to an already-authenticated built-in Gmail or Google Drive app.
+
 ## Install once
 
 In Codex CLI, add the public marketplace and install the plugin:
@@ -15,7 +18,7 @@ codex plugin add zortex-bootstrap@zortexhq
 
 Start a new Codex conversation, then say:
 
-> Install Zortex and connect my Gmail and Google Drive.
+> Connect my Gmail and Google Drive through Zortex, not Codex apps.
 
 For every explicit Zortex installation or connection request, the plugin runs
 `npm install --global @zortex-hq/install@latest --no-audit --no-fund` before

@@ -1,7 +1,7 @@
 {
   "name": "zortex-bootstrap",
-  "version": "0.1.2+codex.20260909032437",
-  "description": "Install Zortex for Windows and start bounded source onboarding from Codex.",
+  "version": "0.1.3+codex.20260909034046",
+  "description": "Connect Gmail, Google Drive, Notion, PostHog, Outlook, or WhatsApp through local Zortex instead of Codex built-in apps.",
   "author": {
     "name": "ZortexHQ",
     "url": "https://github.com/ZortexHQ"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Zortex",
-    "shortDescription": "Install Zortex and connect bounded Windows context sources.",
-    "longDescription": "On an explicit request, installs the public Zortex Windows package and starts receipt-backed, bounded source onboarding.",
+    "shortDescription": "Connect supported apps through local Zortex, not Codex apps.",
+    "longDescription": "On an explicit supported-app connection request, installs the public Zortex Windows package and starts receipt-backed, bounded source onboarding instead of using Codex built-in provider apps.",
     "developerName": "ZortexHQ",
     "category": "Productivity",
     "capabilities": [
@@ -28,7 +28,7 @@
     ],
     "websiteURL": "https://github.com/ZortexHQ/zortex-codex-plugin",
     "defaultPrompt": [
-      "Install Zortex and connect my Gmail and Google Drive.",
+      "Connect my Gmail and Google Drive through Zortex, not Codex apps.",
       "Connect my Notion workspace through Zortex.",
       "Show the status of my Zortex connections."
     ],

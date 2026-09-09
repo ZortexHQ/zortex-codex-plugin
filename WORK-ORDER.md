@@ -25,6 +25,8 @@ agent onboarding path, and reports a receipt-backed result.
    explicit Zortex installation/connection requests; it maps only declared source IDs and
    relies on Zortex's automatic bounded first read rather than asking users to
    choose a sync strategy.
+   A matching supported-source connection routes through Zortex rather than an
+   already-authenticated `codex_apps.*` provider app.
 4. The skill reports typed readiness and provider blockers, never credentials
    or false source readiness.
 5. The public Git repository is pushed, then a local Codex client can add its
