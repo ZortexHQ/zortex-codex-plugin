@@ -1,0 +1,29 @@
+{
+  "name": "zortex-bootstrap",
+  "version": "0.1.0",
+  "description": "Install Zortex for Windows and start bounded source onboarding from Codex.",
+  "author": {
+    "name": "ZortexHQ",
+    "url": "https://github.com/ZortexHQ"
+  },
+  "homepage": "https://github.com/ZortexHQ/zortex-codex-plugin#readme",
+  "repository": "https://github.com/ZortexHQ/zortex-codex-plugin",
+  "license": "MIT",
+  "keywords": ["zortex", "codex", "windows", "onboarding", "context"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Zortex",
+    "shortDescription": "Install Zortex and connect bounded Windows context sources.",
+    "longDescription": "On an explicit request, installs the public Zortex Windows package and starts receipt-backed, bounded source onboarding.",
+    "developerName": "ZortexHQ",
+    "category": "Productivity",
+    "capabilities": ["Shell"],
+    "websiteURL": "https://github.com/ZortexHQ/zortex-codex-plugin",
+    "defaultPrompt": [
+      "Install Zortex and connect my Gmail and Google Drive.",
+      "Connect my Notion workspace through Zortex.",
+      "Show the status of my Zortex connections."
+    ],
+    "brandColor": "#4F46E5"
+  }
+}

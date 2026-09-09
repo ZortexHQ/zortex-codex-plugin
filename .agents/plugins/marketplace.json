@@ -1,0 +1,20 @@
+{
+  "name": "zortexhq",
+  "interface": {
+    "displayName": "Zortex"
+  },
+  "plugins": [
+    {
+      "name": "zortex-bootstrap",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zortex-bootstrap"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
