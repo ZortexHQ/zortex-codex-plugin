@@ -40,3 +40,16 @@ erase append-only local data.
 This is not a Zortex cloud marketplace, a public pack registry, a connector,
 or a provider OAuth flow. It is a distribution shim for the existing Windows
 npm package.
+
+## Execution receipt (2026-09-09)
+
+1. Public repository `ZortexHQ/zortex-codex-plugin` was created with commit
+   `003b41e` on `main`; no private Zortex repository was exposed.
+2. `validate_plugin.py plugins/zortex-bootstrap` passed, and the marketplace
+   JSON parsed successfully.
+3. A real local Codex CLI added `ZortexHQ/zortex-codex-plugin --ref main` as
+   marketplace `zortexhq`, then installed and enabled
+   `zortex-bootstrap@zortexhq` version `0.1.0` from its Git snapshot.
+4. The installed cache contains the published bootstrap skill verbatim. A new
+   Codex conversation is the consumer boundary for implicit skill activation;
+   no user data or source credential was used for this distribution proof.
