@@ -21,8 +21,8 @@ agent onboarding path, and reports a receipt-backed result.
    exposes `zortex-bootstrap` with an explicit install policy.
 2. The plugin manifest is schema-valid and has one skill, no MCP server, app,
    hook, credential, or connector payload.
-3. The skill runs npm installation and onboarding only for explicit Zortex
-   installation/connection requests; it maps only declared source IDs and
+3. The skill runs the exact npm `latest` installation and onboarding only for
+   explicit Zortex installation/connection requests; it maps only declared source IDs and
    relies on Zortex's automatic bounded first read rather than asking users to
    choose a sync strategy.
 4. The skill reports typed readiness and provider blockers, never credentials

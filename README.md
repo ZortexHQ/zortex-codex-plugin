@@ -17,9 +17,11 @@ Start a new Codex conversation, then say:
 
 > Install Zortex and connect my Gmail and Google Drive.
 
-The plugin runs `npm install --global @zortex-hq/install` only for an explicit
-Zortex installation or connection request, then runs the receipt-backed agent
-onboarding command. If Zortex is already installed, it skips npm installation.
+For every explicit Zortex installation or connection request, the plugin runs
+`npm install --global @zortex-hq/install@latest --no-audit --no-fund` before
+the receipt-backed agent onboarding command. This intentionally replaces stale
+Zortex npm shims rather than trusting that a `zortex` command on `PATH` is
+current.
 Every named supported source automatically gets a bounded first read; when it
 finishes, Codex reports the exact item count and lets the user decide whether
 to read more history.

@@ -23,14 +23,17 @@ Windows-only workflow.
    and WeChat is not part of this Windows path.
 3. Confirm that the host is Windows and that `npm` is available. If either is
    unavailable, report the exact blocker and do not try another package manager.
-4. If `zortex` is not on `PATH`, install exactly this public package:
+4. On every explicit installation or connection request, ensure the current
+   public package is installed:
 
    ```powershell
-   npm install --global @zortex-hq/install
+   npm install --global @zortex-hq/install@latest --no-audit --no-fund
    ```
 
-   Do not use `npx`, install a package with a similar name, or add a model,
-   MCP action tool, browser extension, or connector package.
+   A stale `zortex` shim on `PATH` is not proof that the current package is
+   installed, so do not skip this step merely because `zortex` resolves. Do
+   not use `npx`, install a package with a similar name, or add a model, MCP
+   action tool, browser extension, or connector package.
 5. Run the explicit agent path, retaining the returned JSON receipt:
 
    ```powershell
