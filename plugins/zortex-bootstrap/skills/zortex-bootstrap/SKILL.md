@@ -31,23 +31,15 @@ zortex onboard --agent --host codex --source <resolved-id>... --json
 ```
 
 An `oauth-browser` recipe opens the provider page and waits only for the person
-to complete account login, MFA, and consent. A `stored-credential` recipe names
-its exact missing credential path. A `file-import` recipe never launches or
-reads the source application, scans Downloads, or uses a browser session.
+to complete account login, MFA, consent, CAPTCHA, hardware-key touch, or an
+account-risk confirmation. Never tell the user to run a shell command, paste a
+credential, create an API key, or retry Zortex: execute ordinary installation,
+diagnostics, and provider setup yourself. A `blocked` recipe reports its exact
+deferred reason and stops; it is not connected.
 
-For WhatsApp, the safe recipe is one `.txt` chat file exported by the user from
-WhatsApp's own UI. Do not use a WhatsApp window, WhatsApp Web, QR pairing, a
-local database, or a provider API. Once the user explicitly selects or supplies
-the export path, run:
-
-```powershell
-zortex onboard --agent --host codex --source whatsapp --file <export.txt> --json
-```
-
-Pass only that selected path to the local CLI. Never paste, upload, summarize,
-or inspect chat content in the agent conversation. If no file has been selected,
-report the exact export step as `NEEDS_ATTENTION`; do not claim WhatsApp is
-connected.
+WhatsApp is deferred from this Windows Preview. Do not open its window, request
+a chat export, use WhatsApp Web, QR pairing, a local database, or a provider
+API.
 
 After connection, retain the receipt and check it before claiming readiness:
 
@@ -58,7 +50,7 @@ zortex autopilot connect-status <receipt-id> --json
 Only a queryable `STARTER_READY` source can provide cited context Q&A. Report
 its exact `itemsRead` count; do not backfill history until the user asks.
 
-If no installed recipe matches the requested app, normalize the name to a
+If no released automatic recipe matches the requested app, normalize the name to a
 lowercase kebab source id and run:
 
 ```powershell
