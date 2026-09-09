@@ -1,7 +1,7 @@
 {
   "name": "zortex-bootstrap",
-  "version": "0.1.3+codex.20260909034046",
-  "description": "Connect Gmail, Google Drive, Notion, PostHog, Outlook, or WhatsApp through local Zortex instead of Codex built-in apps.",
+  "version": "0.1.3+codex.20260909063613",
+  "description": "Connect user-named apps through declarative local Zortex recipes instead of Codex built-in apps.",
   "author": {
     "name": "ZortexHQ",
     "url": "https://github.com/ZortexHQ"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Zortex",
-    "shortDescription": "Connect supported apps through local Zortex, not Codex apps.",
-    "longDescription": "On an explicit supported-app connection request, installs the public Zortex Windows package and starts receipt-backed, bounded source onboarding instead of using Codex built-in provider apps.",
+    "shortDescription": "Connect apps through local Zortex recipes, not Codex apps.",
+    "longDescription": "On an explicit app connection request, resolves a local Zortex recipe into receipt-backed bounded onboarding; unmatched apps enter the existing connector-fabrication workflow instead of being falsely marked connected.",
     "developerName": "ZortexHQ",
     "category": "Productivity",
     "capabilities": [
@@ -28,8 +28,8 @@
     ],
     "websiteURL": "https://github.com/ZortexHQ/zortex-codex-plugin",
     "defaultPrompt": [
-      "Connect my Gmail and Google Drive through Zortex, not Codex apps.",
-      "Connect my Notion workspace through Zortex.",
+      "Connect my Gmail, Google Drive, and Outlook through Zortex, not Codex apps.",
+      "Connect my WhatsApp through Zortex.",
       "Show the status of my Zortex connections."
     ],
     "brandColor": "#4F46E5"
