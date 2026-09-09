@@ -30,18 +30,23 @@ the returned source IDs:
 zortex onboard --agent --host codex --source <resolved-id>... --json
 ```
 
-An `oauth-browser` recipe opens the provider page and waits only for the person
-to complete account login, MFA, consent, CAPTCHA, hardware-key touch, or an
-account-risk confirmation. Never tell the user to run a shell command, paste a
-credential, create an API key, or retry Zortex: execute ordinary installation,
-diagnostics, and provider setup yourself. A `blocked` recipe reports its exact
-deferred reason and stops; it is not connected.
+An `oauth-browser` recipe identifies a possible native enrollment route; it
+does not prove that a browser page opened. After onboarding, retain the receipt
+and poll `zortex autopilot connect-status <receipt-id> --json` yourself with
+bounded backoff. On `STARTER_READY`, report the exact `itemsRead` count and that
+the existing authorization was usable; never say a browser was opened or ask the
+user to report completion. On `NEEDS_ATTENTION`, report only its exact native
+provider boundary. Never invent an authorization lock or ask permission to
+restart Zortex. Never tell the user to run a shell command, paste a credential,
+create an API key, or retry Zortex: execute ordinary installation, diagnostics,
+and provider setup yourself. A `blocked` recipe reports its exact deferred
+reason and stops; it is not connected.
 
 WhatsApp is deferred from this Windows Preview. Do not open its window, request
 a chat export, use WhatsApp Web, QR pairing, a local database, or a provider
 API.
 
-After connection, retain the receipt and check it before claiming readiness:
+The receipt check is the readiness source of truth:
 
 ```powershell
 zortex autopilot connect-status <receipt-id> --json
