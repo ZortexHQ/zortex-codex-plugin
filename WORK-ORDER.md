@@ -55,3 +55,8 @@ npm package.
 4. The installed cache contains the published bootstrap skill verbatim. A new
    Codex conversation is the consumer boundary for implicit skill activation;
    no user data or source credential was used for this distribution proof.
+5. Version `0.1.1+codex.20260909031006` was published from commit `660df87`
+   and reinstalled through the upgraded `zortexhq` marketplace. It removes the
+   user-facing Starter instruction, lets named connections run the first read
+   automatically, and tells Codex to report `itemsRead` before asking whether
+   the user wants more history.
