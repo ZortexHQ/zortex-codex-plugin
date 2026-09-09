@@ -62,3 +62,6 @@ npm package.
    user-facing Starter instruction, lets named connections run the first read
    automatically, and tells Codex to report `itemsRead` before asking whether
    the user wants more history.
+6. Version `0.1.3+codex.20260909034046` was published from commit `d8964f3`,
+   then reinstalled from `zortexhq`; its supported-source routing instruction
+   explicitly refuses to substitute authenticated `codex_apps.*` provider apps.
