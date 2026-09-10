@@ -48,6 +48,9 @@ stated range, use `--all` instead of `--limit`. That exhausts only matching
 provider pages. Tell the user when this all-match read starts, then report its
 completion. Never run a queryless account scan. Every answer states the
 query scope, actual records retrieved, and whether all matches were exhausted.
+Successful retrieval includes incremental standing-index catch-up. If it returns
+`AUTH_BLOCKED`, rerun onboarding yourself and do not claim that source is
+connected until authorization succeeds.
 
 If the request names an app outside the released roster, inspect recipes with
 `zortex autopilot recipes --json`. If no released automatic recipe matches,
