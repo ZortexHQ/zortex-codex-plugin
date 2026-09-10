@@ -26,8 +26,8 @@ For every explicit Zortex installation or connection request, the plugin runs
 `npm install --global @zortexhq/install@latest --no-audit --no-fund` before
 the receipt-backed agent onboarding command. This intentionally replaces stale
 Zortex npm shims rather than trusting that a `zortex` command on `PATH` is
-current. Onboarding connects every released source and starts its normal full
-sync in the background; there is no ten-item sample or separate Starter choice.
+current. Onboarding authorizes every released source without reading messages or
+files. Content is retrieved only after the user asks a question.
 
 ## What it can connect
 
@@ -38,8 +38,9 @@ are excluded from this Windows release.
 When Zortex returns `NEEDS_ATTENTION`, Codex reports the precise provider
 blocker rather than treating it as success. It never sends a credential in a
 command argument or chat message. Once a queryable source reaches
-connected authorization, Codex can use Zortex's read-only MCP context bridge
-for cited answers while the receipt reports background backfill coverage.
+connected authorization, Codex runs a bounded provider-native query against the
+minimum relevant sources, then uses Zortex's read-only MCP context bridge for
+cited answers. It never starts an account-wide scan implicitly.
 
 ## Remove
 

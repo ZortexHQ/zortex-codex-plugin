@@ -1,7 +1,7 @@
 {
   "name": "zortex-bootstrap",
-  "version": "0.1.3+codex.20260910055447",
-  "description": "Install Zortex and automatically connect released local sources for full-corpus cited analysis.",
+  "version": "0.1.3+codex.20260910075806",
+  "description": "Install Zortex, authorize released local sources, and retrieve bounded cited context on demand.",
   "author": {
     "name": "ZortexHQ",
     "url": "https://github.com/ZortexHQ"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Zortex",
     "shortDescription": "Connect apps through local Zortex recipes, not Codex apps.",
-    "longDescription": "On an explicit app connection request, starts receipt-backed local Zortex onboarding and background full sync; unmatched apps enter connector fabrication instead of being falsely marked connected.",
+    "longDescription": "On an explicit app connection request, starts receipt-backed authorization without scanning content; questions trigger bounded reads from relevant sources, and unmatched apps enter connector fabrication.",
     "developerName": "ZortexHQ",
     "category": "Productivity",
     "capabilities": [

@@ -1,6 +1,6 @@
 ---
 name: zortex-bootstrap
-description: Install Zortex and automatically connect every released local source for full-corpus cited analysis; unsupported named apps enter connector fabrication.
+description: Install Zortex, authorize released local sources without scanning them, and retrieve bounded cited context only when a user asks a question; unsupported apps enter connector fabrication.
 ---
 
 # Zortex automatic onboarding
@@ -33,12 +33,18 @@ Retain the onboarding receipt and poll with bounded backoff:
 zortex autopilot connect-status <receipt-id> --json
 ```
 
-There is no ten-item onboarding sample. Authorization starts each connector's
-normal full sync in the detached worker. The user may ask as soon as
-authorization is connected. If the question has an explicit range, use matching
-synchronized cited records and disclose incomplete coverage while sync is still
-running. A question without an explicit range waits for every requested source
-to report `backfill: caught_up`, then analyzes the full connected corpus.
+Connection reads no messages or files. Once the receipt reports `CONNECTED`,
+tell the user questions are ready. For each question, select the minimum relevant
+connected sources and run one bounded provider-native query per source:
+
+```powershell
+zortex retrieve <gmail|google-drive|outlook> --query <provider-query> --json
+```
+
+Never run a queryless sync or account-wide scan. Then call `indra.context` and
+answer from the retrieved records with Zortex citations. If one bounded query
+cannot express the request, ask the user to narrow it instead of starting a
+backfill.
 
 If the request names an app outside the released roster, inspect recipes with
 `zortex autopilot recipes --json`. If no released automatic recipe matches,
