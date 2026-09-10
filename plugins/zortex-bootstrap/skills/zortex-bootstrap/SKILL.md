@@ -12,7 +12,7 @@ Install or refresh the public package, then start automatic onboarding without
 source arguments:
 
 ```powershell
-npm install --global @zortex-hq/install@latest --no-audit --no-fund
+npm install --global @zortexhq/install@latest --no-audit --no-fund
 zortex onboard --agent --host codex --json
 ```
 

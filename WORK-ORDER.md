@@ -11,7 +11,7 @@ agent onboarding path, and reports a receipt-backed result.
 
 | Component | Reused or added | Boundary |
 | --- | --- | --- |
-| `@zortex-hq/install` | Reused | Owns Windows executable, permission probe, connector workers, and read-only MCP configuration. |
+| `@zortexhq/install` | Reused | Owns Windows executable, permission probe, connector workers, and read-only MCP configuration. |
 | `zortex-bootstrap` skill | Added | Maps explicit user requests to the public package and existing CLI; it contains no connector or credential implementation. |
 | Codex marketplace | Added | Distributes the skill only; it does not become a Zortex data marketplace. |
 
@@ -23,8 +23,8 @@ agent onboarding path, and reports a receipt-backed result.
    hook, credential, or connector payload.
 3. The skill runs the exact npm `latest` installation and onboarding only for
    explicit Zortex installation/connection requests; it maps only declared source IDs and
-   relies on Zortex's automatic bounded first read rather than asking users to
-   choose a sync strategy.
+   starts Zortex's normal background full sync without asking users to choose a
+   Starter or sync strategy.
    A matching supported-source connection routes through Zortex rather than an
    already-authenticated `codex_apps.*` provider app.
 4. The skill reports typed readiness and provider blockers, never credentials

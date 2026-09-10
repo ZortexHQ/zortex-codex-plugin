@@ -21,26 +21,23 @@ Start a new Codex conversation, then say:
 > Connect my Gmail and Google Drive through Zortex, not Codex apps.
 
 For every explicit Zortex installation or connection request, the plugin runs
-`npm install --global @zortex-hq/install@latest --no-audit --no-fund` before
+`npm install --global @zortexhq/install@latest --no-audit --no-fund` before
 the receipt-backed agent onboarding command. This intentionally replaces stale
 Zortex npm shims rather than trusting that a `zortex` command on `PATH` is
-current.
-Every named supported source automatically gets a bounded first read; when it
-finishes, Codex reports the exact item count and lets the user decide whether
-to read more history.
+current. Onboarding connects every released source and starts its normal full
+sync in the background; there is no ten-item sample or separate Starter choice.
 
 ## What it can connect
 
-`gmail`, `google-drive`, `notion`, `posthog`, and `outlook` automatically read
-up to 10 bounded records at first connection. `whatsapp` is metadata-only. Chrome history and
-computer files need a bounded selection; GitHub is currently blocked and
-WeChat is excluded from this Windows path.
+`gmail`, `google-drive`, and `outlook` are the released automatic Windows
+sources. Notion and PostHog enter connector fabrication; WhatsApp and WeChat
+are excluded from this Windows release.
 
 When Zortex returns `NEEDS_ATTENTION`, Codex reports the precise provider
 blocker rather than treating it as success. It never sends a credential in a
 command argument or chat message. Once a queryable source reaches
-`STARTER_READY`, Codex can use Zortex's read-only MCP context bridge for cited
-answers.
+connected authorization, Codex can use Zortex's read-only MCP context bridge
+for cited answers while the receipt reports background backfill coverage.
 
 ## Remove
 
