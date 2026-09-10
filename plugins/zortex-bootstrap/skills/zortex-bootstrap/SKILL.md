@@ -45,7 +45,8 @@ zortex retrieve <source> --query <provider-query> --limit <n> --json
 Call `indra.context`; if evidence is insufficient, increase the limit and repeat.
 When the user explicitly requests all results, complete statistics, or a whole
 stated range, use `--all` instead of `--limit`. That exhausts only matching
-provider pages. Never run a queryless account scan. Every answer states the
+provider pages. Tell the user when this all-match read starts, then report its
+completion. Never run a queryless account scan. Every answer states the
 query scope, actual records retrieved, and whether all matches were exhausted.
 
 If the request names an app outside the released roster, inspect recipes with
