@@ -1,7 +1,7 @@
 {
   "name": "zortex-bootstrap",
-  "version": "0.1.3+codex.20260910022739",
-  "description": "Install Zortex and automatically connect its released local sources for cited context.",
+  "version": "0.1.3+codex.20260910030203",
+  "description": "Install Zortex and automatically connect released local sources for full-corpus cited analysis.",
   "author": {
     "name": "ZortexHQ",
     "url": "https://github.com/ZortexHQ"

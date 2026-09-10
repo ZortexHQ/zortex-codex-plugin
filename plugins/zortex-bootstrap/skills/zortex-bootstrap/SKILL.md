@@ -1,6 +1,6 @@
 ---
 name: zortex-bootstrap
-description: Install Zortex and automatically connect every released local source for cited context; unsupported named apps enter connector fabrication.
+description: Install Zortex and automatically connect every released local source for full-corpus cited analysis; unsupported named apps enter connector fabrication.
 ---
 
 # Zortex automatic onboarding
@@ -33,10 +33,12 @@ Retain the onboarding receipt and poll with bounded backoff:
 zortex autopilot connect-status <receipt-id> --json
 ```
 
-A `STARTER_READY` source is available for cited Q&A and reports its exact
-`itemsRead` count; full historical sync starts automatically in the same
-detached worker. Report `backfill` as `queued`, `running`, `caught_up`, or
-`failed`. Never claim full coverage before `caught_up`.
+There is no ten-item onboarding sample. Authorization starts each connector's
+normal full sync in the detached worker. The user may ask as soon as
+authorization is connected. If the question has an explicit range, use matching
+synchronized cited records and disclose incomplete coverage while sync is still
+running. A question without an explicit range waits for every requested source
+to report `backfill: caught_up`, then analyzes the full connected corpus.
 
 If the request names an app outside the released roster, inspect recipes with
 `zortex autopilot recipes --json`. If no released automatic recipe matches,
