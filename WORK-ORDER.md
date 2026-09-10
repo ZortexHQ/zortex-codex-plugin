@@ -23,8 +23,8 @@ agent onboarding path, and reports a receipt-backed result.
    hook, credential, or connector payload.
 3. The skill runs the exact npm `latest` installation and onboarding only for
    explicit Zortex installation/connection requests; it authorizes declared
-   sources without reading content, then uses bounded provider queries only
-   after the user asks a question.
+   sources without reading content, then adaptively pages provider queries only
+   after the user asks a question; explicit complete requests exhaust matches.
    A matching supported-source connection routes through Zortex rather than an
    already-authenticated `codex_apps.*` provider app.
 4. The skill reports typed readiness and provider blockers, never credentials

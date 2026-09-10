@@ -1,6 +1,6 @@
 ---
 name: zortex-bootstrap
-description: Install Zortex, authorize released local sources without scanning them, and retrieve bounded cited context only when a user asks a question; unsupported apps enter connector fabrication.
+description: Install Zortex, authorize sources without scanning, and adaptively page provider search results only when a user asks a question; unsupported apps enter connector fabrication.
 ---
 
 # Zortex automatic onboarding
@@ -35,16 +35,18 @@ zortex autopilot connect-status <receipt-id> --json
 
 Connection reads no messages or files. Once the receipt reports `CONNECTED`,
 tell the user questions are ready. For each question, select the minimum relevant
-connected sources and run one bounded provider-native query per source:
+connected sources, derive provider-native queries, choose a batch size from the
+question rather than a fixed default, and run:
 
 ```powershell
-zortex retrieve <gmail|google-drive|outlook> --query <provider-query> --json
+zortex retrieve <source> --query <provider-query> --limit <n> --json
 ```
 
-Never run a queryless sync or account-wide scan. Then call `indra.context` and
-answer from the retrieved records with Zortex citations. If one bounded query
-cannot express the request, ask the user to narrow it instead of starting a
-backfill.
+Call `indra.context`; if evidence is insufficient, increase the limit and repeat.
+When the user explicitly requests all results, complete statistics, or a whole
+stated range, use `--all` instead of `--limit`. That exhausts only matching
+provider pages. Never run a queryless account scan. Every answer states the
+query scope, actual records retrieved, and whether all matches were exhausted.
 
 If the request names an app outside the released roster, inspect recipes with
 `zortex autopilot recipes --json`. If no released automatic recipe matches,

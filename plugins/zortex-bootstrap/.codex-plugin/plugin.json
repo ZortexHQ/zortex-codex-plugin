@@ -1,7 +1,7 @@
 {
   "name": "zortex-bootstrap",
-  "version": "0.1.3+codex.20260910075806",
-  "description": "Install Zortex, authorize released local sources, and retrieve bounded cited context on demand.",
+  "version": "0.1.3+codex.20260910081938",
+  "description": "Install Zortex, authorize sources without scanning, and adaptively page cited search results on demand.",
   "author": {
     "name": "ZortexHQ",
     "url": "https://github.com/ZortexHQ"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Zortex",
     "shortDescription": "Connect apps through local Zortex recipes, not Codex apps.",
-    "longDescription": "On an explicit app connection request, starts receipt-backed authorization without scanning content; questions trigger bounded reads from relevant sources, and unmatched apps enter connector fabrication.",
+    "longDescription": "Onboarding authorizes without scanning; questions choose adaptive provider-search pages, explicit complete requests exhaust matches, and unmatched apps enter connector fabrication.",
     "developerName": "ZortexHQ",
     "category": "Productivity",
     "capabilities": [
