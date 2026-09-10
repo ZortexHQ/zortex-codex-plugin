@@ -4,6 +4,8 @@ This public Codex plugin teaches a fresh Codex installation the exact Zortex
 package name and the safe Windows onboarding route. It contains instructions
 only: no connector, MCP server, user data, token, or provider credential.
 
+Privacy policy: [PRIVACY.md](PRIVACY.md).
+
 For supported source connection requests, it routes Codex to Zortex rather than
 to an already-authenticated built-in Gmail or Google Drive app.
 
