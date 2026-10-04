@@ -11,6 +11,41 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'f=\"$HOME/.zortex/token-meter/repo/tools/git-hooks/rules/checkpoint.ts\"; b=\"$(command -v bun 2>/dev/null || echo \"$HOME/.bun/bin/bun\")\"; [ -f \"$f\" ] && [ -x \"$b\" ] && exec \"$b\" \"$f\" pre; exit 0'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'f=\"$HOME/.zortex/token-meter/repo/tools/git-hooks/rules/checkpoint.ts\"; b=\"$(command -v bun 2>/dev/null || echo \"$HOME/.bun/bin/bun\")\"; [ -f \"$f\" ] && [ -x \"$b\" ] && exec \"$b\" \"$f\" post; exit 0'",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'f=\"$HOME/.zortex/token-meter/repo/tools/git-hooks/rules/checkpoint.ts\"; b=\"$(command -v bun 2>/dev/null || echo \"$HOME/.bun/bin/bun\")\"; [ -f \"$f\" ] && [ -x \"$b\" ] && exec \"$b\" \"$f\" stop; exit 0'",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }
